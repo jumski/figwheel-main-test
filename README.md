@@ -1,10 +1,42 @@
 # figwheel-main-test
 
-FIXME: Write a one-line description of your library/project.
+Created to test integration with vim-fireplace and other stuff.
 
-## Overview
+## Development with vim-fireplace
 
-FIXME: Write a paragraph about the library/project and highlight its goals.
+Start regular repl:
+
+```
+lein repl
+```
+
+Run this in regular repl:
+
+```clojure
+(require 'figwheel.main.api)
+(figwheel.main.api/start {:mode :serve} "dev")
+(figwheel.main.api/cljs-repl "dev")
+```
+
+Test if cljs repl is connected to browser:
+
+```
+(js/alert "I'm working!!!")
+```
+
+If alert pops up, you are good. Start vim, open cljs file and run following:
+
+```
+:Piggieback (figwheel.main.api/repl-env "dev")
+```
+
+Now, put this in the file:
+
+```clojure
+(js/alert "I'm working from vim!!!")
+```
+
+And eval it with `cpp`.  If alert pops up, you are good to go!
 
 ## Development
 
